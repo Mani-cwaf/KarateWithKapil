@@ -1,0 +1,368 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400&display=swap');
+
+  .m { background: #f7f5f0; color: #1a1a18; font-family: 'DM Sans', sans-serif; font-weight: 300; }
+
+  .m-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 36px;
+    background: #111;
+  }
+
+  .m-logo {
+    font-family: 'Cormorant', serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #f7f5f0;
+  }
+
+  .m-nav-links { display: flex; gap: 28px; }
+  .m-nav-links span {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #666;
+    font-weight: 300;
+  }
+  .m-nav-links span.active { color: #f7f5f0; }
+
+  .m-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 48px 36px 40px;
+    align-items: end;
+  }
+
+  .m-hero h1 {
+    font-family: 'Cormorant', serif;
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1.05;
+    margin: 0 0 16px;
+    color: #1a1a18;
+  }
+
+  .m-hero-sub {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.9;
+    margin-bottom: 24px;
+    max-width: 280px;
+  }
+
+  .m-cta-row { display: flex; align-items: center; gap: 20px; }
+
+  .m-btn {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    background: #1a1a18;
+    color: #f7f5f0;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+  }
+
+  .m-link {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a7a5a;
+    border-bottom: 1px solid #8a7a5a44;
+    padding-bottom: 1px;
+  }
+
+  .m-hero-imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 4px;
+    height: 220px;
+  }
+
+  .m-img {
+    background: #e2ddd5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .m-img:first-child { grid-row: span 2; }
+  .m-img svg { opacity: 0.18; }
+
+  .m-img-label {
+    position: absolute;
+    bottom: 7px; left: 9px;
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #999;
+  }
+
+  .m-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26px; height: 26px;
+    border: 1px solid #8a7a5a55;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .m-play::after {
+    content: '';
+    width: 0; height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 7px solid #8a7a5a;
+    margin-left: 2px;
+  }
+
+  .m-divider { height: 1px; background: #e0dcd4; margin: 0 36px; }
+
+  .m-stats {
+    display: flex;
+    padding: 24px 36px;
+    gap: 0;
+  }
+
+  .m-stat { flex: 1; padding-right: 24px; border-right: 1px solid #e0dcd4; margin-right: 24px; }
+  .m-stat:last-child { border-right: none; margin-right: 0; }
+
+  .m-stat-num {
+    font-family: 'Cormorant', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: #8a7a5a;
+    display: block;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .m-stat-label {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #bbb;
+    display: block;
+  }
+
+  .m-gallery-full {
+    background: #111;
+    padding: 32px 36px;
+    margin-top: 0;
+  }
+
+  .m-gallery-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 16px;
+  }
+
+  .m-gallery-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    height: 260px;
+  }
+
+  .m-gcell {
+    background: #1e1e1c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .m-gcell:first-child { grid-row: span 2; }
+  .m-gcell svg { opacity: 0.12; }
+
+  .m-gcell-label {
+    position: absolute;
+    bottom: 8px; left: 10px;
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .m-gallery-more {
+    margin-top: 14px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #444;
+    text-align: right;
+    cursor: pointer;
+  }
+
+  .m-schedule-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 36px 36px 0;
+  }
+
+  .m-schedule-left { padding-right: 36px; border-right: 1px solid #e0dcd4; }
+
+  .m-section-title {
+    font-family: 'Cormorant', serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 18px;
+    color: #1a1a18;
+  }
+
+  .m-srow {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid #ece8e0;
+  }
+  .m-srow:last-child { border-bottom: none; }
+
+  .m-sday { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #bbb; }
+  .m-stime { font-family: 'Cormorant', serif; font-size: 16px; font-weight: 300; color: #1a1a18; }
+  .m-slevel { font-size: 9px; letter-spacing: 0.1em; color: #8a7a5a; text-transform: uppercase; }
+
+  .m-schedule-right {
+    padding-left: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .m-quote {
+    font-family: 'Cormorant', serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 300;
+    color: #bbb;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+
+  .m-quote-attr {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: #ccc;
+    text-transform: uppercase;
+  }
+
+  .m-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 36px;
+    margin-top: 36px;
+    border-top: 1px solid #e0dcd4;
+  }
+
+  .m-footer-logo { font-family: 'Cormorant', serif; font-size: 12px; letter-spacing: 0.18em; color: #bbb; text-transform: uppercase; }
+  .m-footer-copy { font-size: 9px; letter-spacing: 0.1em; color: #ccc; text-transform: uppercase; }
+</style>
+
+<div class="m">
+  <div class="m-nav">
+    <div class="m-logo">Mushin Karate</div>
+    <div class="m-nav-links">
+      <span>About</span>
+      <span>Classes</span>
+      <span>Gallery</span>
+      <span class="active">Join</span>
+    </div>
+  </div>
+
+  <div class="m-hero">
+    <div>
+      <h1>Karate,<br>outdoors.</h1>
+      <p class="m-hero-sub">Traditional karate taught in the open air, three times a week at the park. All levels welcome.</p>
+      <div class="m-cta-row">
+        <div class="m-btn">Join a class</div>
+        <a class="m-link">View gallery</a>
+      </div>
+    </div>
+    <div class="m-hero-imgs">
+      <div class="m-img">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" stroke="#8a7a5a" stroke-width="1.2"/><circle cx="8" cy="8" r="1.5" fill="#8a7a5a"/><path d="M21 15L16 10L11 15L8 12L3 17" stroke="#8a7a5a" stroke-width="1"/></svg>
+        <span class="m-img-label">Park session</span>
+      </div>
+      <div class="m-img">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" stroke="#8a7a5a" stroke-width="1.2"/><circle cx="8" cy="8" r="1.5" fill="#8a7a5a"/></svg>
+        <span class="m-img-label">Kata</span>
+      </div>
+      <div class="m-img">
+        <div class="m-play"></div>
+        <span class="m-img-label">Reel</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-divider"></div>
+
+  <div class="m-stats">
+    <div class="m-stat"><span class="m-stat-num">12+</span><span class="m-stat-label">Years training</span></div>
+    <div class="m-stat"><span class="m-stat-num">40</span><span class="m-stat-label">Students</span></div>
+    <div class="m-stat"><span class="m-stat-num">3×</span><span class="m-stat-label">Weekly</span></div>
+  </div>
+
+  <div class="m-gallery-full">
+    <div class="m-gallery-label">Gallery</div>
+    <div class="m-gallery-grid">
+      <div class="m-gcell">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" stroke="#8a7a5a" stroke-width="1"/><circle cx="8" cy="8" r="1.5" fill="#8a7a5a"/><path d="M21 15L16 10L11 15L8 12L3 17" stroke="#8a7a5a" stroke-width="1"/></svg>
+        <span class="m-gcell-label">Morning class</span>
+      </div>
+      <div class="m-gcell">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" stroke="#8a7a5a" stroke-width="1"/><circle cx="8" cy="8" r="1.5" fill="#8a7a5a"/></svg>
+        <span class="m-gcell-label">Sparring</span>
+      </div>
+      <div class="m-gcell">
+        <div class="m-play"></div>
+        <span class="m-gcell-label">Training film</span>
+      </div>
+      <div class="m-gcell">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" stroke="#8a7a5a" stroke-width="1"/><circle cx="8" cy="8" r="1.5" fill="#8a7a5a"/><path d="M21 15L16 10L11 15L8 12L3 17" stroke="#8a7a5a" stroke-width="1"/></svg>
+        <span class="m-gcell-label">Form study</span>
+      </div>
+      <div class="m-gcell">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" stroke="#8a7a5a" stroke-width="1"/><circle cx="8" cy="8" r="1.5" fill="#8a7a5a"/></svg>
+        <span class="m-gcell-label">Grading day</span>
+      </div>
+    </div>
+    <div class="m-gallery-more">All photos →</div>
+  </div>
+
+  <div class="m-schedule-section">
+    <div class="m-schedule-left">
+      <div class="m-section-title">Schedule</div>
+      <div class="m-srow"><span class="m-sday">Tuesday</span><span class="m-stime">06:30 – 08:00</span><span class="m-slevel">All levels</span></div>
+      <div class="m-srow"><span class="m-sday">Thursday</span><span class="m-stime">06:30 – 08:00</span><span class="m-slevel">All levels</span></div>
+      <div class="m-srow"><span class="m-sday">Saturday</span><span class="m-stime">07:00 – 09:30</span><span class="m-slevel">Advanced</span></div>
+    </div>
+    <div class="m-schedule-right">
+      <div class="m-quote">"The ultimate aim of karate lies not in victory nor defeat, but in the perfection of character."</div>
+      <div class="m-quote-attr">— Gichin Funakoshi</div>
+    </div>
+  </div>
+
+  <div class="m-footer">
+    <div class="m-footer-logo">Mushin Karate</div>
+    <div class="m-footer-copy">© 2025</div>
+  </div>
+</div>

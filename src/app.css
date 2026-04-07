@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400&display=swap');
+@import 'tailwindcss';
+
+:root {
+    --white: #f7f5f0;
+    --black: #0a0a0a;
+    --grey: #1a1a18;
+    --light-grey: #646464;
+    --gold: #8a7a5a;
+    --light-gold: rgba(103, 90, 65, 0.5);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--grey);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background: linear-gradient(130deg, var(--white) 0%, rgba(190, 182, 166, 0.5) 45%), url("./lib/assets/paper.png");
+    background-size: cover;
+}
+
+p,
+h1,
+h2 {
+    padding: 0;
+    margin: 0;
+}
+
+/* Mobile first — single column everything */
+.gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.bottom {
+    grid-template-columns: 1fr;
+}
+
+/* Tablet ~640px */
+@media (min-width: 640px) {
+    .gallery {
+        grid-template-columns: 1.6fr 1fr 1fr;
+    }
+}
+
+/* Desktop ~1024px */
+@media (min-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bottom {
+        grid-template-columns: 1fr 1fr;
+    }
+}
