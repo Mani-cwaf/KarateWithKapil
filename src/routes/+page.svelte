@@ -5,12 +5,13 @@
     import Schedule from "../lib/components/Schedule.svelte"
     import Join from "../lib/components/Join.svelte"
     import Footer from "../lib/components/Footer.svelte"
+    import { base } from '$app/paths'
 </script>
 
 <div>
     <Nav></Nav>
-    <Hero images={['/media/images/hero/1.png', '/media/images/hero/2.png', '/media/images/hero/3.png']}></Hero>
-    <Gallery images={['/media/images/gallery/1.png', '/media/images/gallery/2.png', '/media/images/gallery/3.png', '/media/images/gallery/4.png', '/media/images/gallery/5.png']}></Gallery>
+    <Hero images={[`${base}/media/images/hero/1.png`, `${base}/media/images/hero/2.png`, `${base}/media/images/hero/3.png`]}></Hero>
+    <Gallery images={[`${base}/media/images/gallery/1.png`, `${base}/media/images/gallery/2.png`, `${base}/media/images/gallery/3.png`, `${base}/media/images/gallery/4.png`, `${base}/media/images/gallery/5.png`]}></Gallery>
     <Schedule></Schedule>
     <Join></Join>
     <Footer></Footer>
