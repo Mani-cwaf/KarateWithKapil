@@ -12,10 +12,6 @@
         const mq = window.matchMedia('(max-width: 650px)')
         mobile = mq.matches
         mq.addEventListener('change', e => mobile = e.matches)
-
-        if (mobile) {
-            els[1].scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' })
-        }
     })
 
     function prev() {

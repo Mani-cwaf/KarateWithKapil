@@ -20,6 +20,7 @@ body {
     font-weight: 300;
     background: linear-gradient(130deg, var(--white) 0%, rgba(190, 182, 166, 0.5) 45%), url("./lib/assets/paper.png");
     background-size: cover;
+    overflow-anchor: none;
 }
 
 p,
