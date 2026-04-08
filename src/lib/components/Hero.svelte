@@ -1,50 +1,48 @@
-
-
 <script>
 	import '../../app.css';
     let { images } = $props()
 </script>
 
 <div class="hero" id="about">
-<div class="about">
-    <div class="intro">
-        <div>
-            <h1>Karate,<br> outdoors</h1>
-            <p>Traditional karate taught in the open air, four times a week at the park. All levels welcome.</p>
-        </div>
+    <div class="about">
+        <div class="intro">
+            <div>
+                <h1>Karate,<br> outdoors</h1>
+                <p>Traditional karate taught in the open air, four times a week at the park. All levels welcome.</p>
+            </div>
 
-        <a href="#join" class="join">JOIN A CLASS</a>
+            <a href="#join" class="join">JOIN A CLASS</a>
+        </div>
+        <div class="images">
+            <img src={images[0]} alt="">
+            <img src={images[1]} alt="">
+            <img src={images[2]} alt="">
+        </div>
     </div>
-    <div class="images">
-        <img src={images[0]} alt="">
-        <img src={images[1]} alt="">
-        <img src={images[2]} alt="">
-    </div>
-</div>
 
     <div class="wide-container">
-    <hr>
-    <div class="info-container">
-        <div class="info">
-            <h2>5+</h2>
-            <p>YEARS TRAINING</p>
+        <hr>
+        <div class="info-container">
+            <div class="info">
+                <h2>5+</h2>
+                <p>YEARS TRAINING</p>
+            </div>
+            <div class="info">
+                <h2>60+</h2>
+                <p>STUDENTS</p>
+            </div>
+            <div class="info">
+                <h2>4x</h2>
+                <p>CLASSES WEEKLY</p>
+            </div>
         </div>
-        <div class="info">
-            <h2>60+</h2>
-            <p>STUDENTS</p>
-        </div>
-        <div class="info">
-            <h2>4x</h2>
-            <p>CLASSES WEEKLY</p>
-        </div>
-    </div>
     </div>
 </div>
 
 <style>
     .hero {
-        height: fit-content; 
-        gap: 24px; 
+        height: fit-content;
+        gap: 24px;
         padding: 3rem;
         margin-top: 2rem;
     }
@@ -62,12 +60,11 @@
         flex-direction: column;
         gap: 1rem;
         max-width: 300px;
-        margin-top: 2rem;
+        margin-top: 3rem;
     }
 
     .intro h1 {
         font-family: 'Cormorant', serif;
-
     }
 
     p {
@@ -78,9 +75,10 @@
     }
 
     h1 {
-        font-size: 4rem;
+        font-size: clamp(2rem, 5vw, 4rem);
         line-height: 1.2;
     }
+
     h2 {
         font-size: 2.5rem;
         letter-spacing: 2px;
@@ -94,19 +92,28 @@
         padding: 0.5rem;
         font-size: 1rem;
         color: var(--white);
+		transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .join:hover {
+        scale: 1.1;
     }
 
     .images {
         display: grid;
         align-self: center;
-        justify-content:flex-end;
-        grid-template-columns: 300px 300px;
+        justify-content: flex-end;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: 112.5px 112.5px;
         gap: 6px;
+        width: 100%;
+        max-width: 606px;
     }
 
     .images img {
-        width: 300px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         border: 1px solid var(--gold);
     }
 
@@ -155,12 +162,20 @@
             flex-direction: column;
             gap: 2rem;
         }
+
+        .images {
+            max-width: 100%;
+        }
     }
 
     @media (max-width: 650px) {
+        .hero {
+            padding: 1.5rem;
+        }
+
         .images {
-            grid-template-columns: 300px;
-            grid-template-rows: 112.5px 112.5px 112.5px;
+            grid-template-columns: 1fr;
+            grid-template-rows: 150px 150px 150px;
             align-self: self-start;
         }
     }
